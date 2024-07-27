@@ -1,4 +1,4 @@
-import { AutoExpense } from './autoExpense';
+import { AutoExpense } from "./autoExpense";
 
 export class FuelExpense extends AutoExpense {
   constructor(
@@ -8,7 +8,7 @@ export class FuelExpense extends AutoExpense {
     cost: number,
     location: string,
     public gallons: number,
-    public ratePerGallon: number
+    public ratePerGallon: number,
   ) {
     super(vehicleName, date, odometerReading, cost, location);
   }
@@ -19,7 +19,23 @@ export class FuelExpense extends AutoExpense {
 }
 
 export class AutoExpenseFactory {
-  static createFuelExpense(vehicleName: string, date: string, odometerReading: number, cost: number, location: string, gallons: number, ratePerGallon: number): FuelExpense {
-    return new FuelExpense(vehicleName, date, odometerReading, cost, location, gallons, ratePerGallon);
+  static createFuelExpense(
+    vehicleName: string,
+    date: string,
+    odometerReading: number,
+    cost: number,
+    location: string,
+    gallons: number,
+    ratePerGallon: number,
+  ): FuelExpense {
+    return new FuelExpense(
+      vehicleName,
+      date,
+      odometerReading,
+      cost,
+      location,
+      gallons,
+      ratePerGallon,
+    );
   }
 }
