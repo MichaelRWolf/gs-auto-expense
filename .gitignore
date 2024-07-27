@@ -1,0 +1,51 @@
+# Node modules directory
+/node_modules/
+
+# Compiled output
+/dist/
+
+# TypeScript build files
+*.tsbuildinfo
+
+# Jest coverage reports
+/coverage/
+
+# Environment variable files
+.env
+
+# Logs
+*.log
+
+# IDE files
+/.idea/
+/.vscode/
+/*.suo
+/*.ntvs_analysis.dat
+/*.njsproj
+/*.sln
+
+# MacOS Finder files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+ehthumbs.db
+
+# Temporary files
+*.tmp
+*.swp
+
+# Google Apps Script deployment files
+*.gs
+
+# Ignore all .js files in the src directory
+/src/*.js
+
+# Ignore all .d.ts files (TypeScript declaration files)
+*.d.ts
+
+# Ignore build artifacts
+*.out
+
+# Ignore coverage folder
+coverage/
