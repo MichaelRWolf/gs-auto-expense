@@ -4,13 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-      "test":       "jest --verbose",
+      "test":        "jest --verbose",
 
-      "build-only": "tsc",
-      "build":      "npm run test && npm run build-only",
+      "build-only":  "tsc",
+      "build":       "npm run test && npm run build-only",
 
-      "push-only":  "cp appsscript.json dist/ && clasp push",
-      "push":       "npm run build && npm run push-only"
+      "push-setup":  "cp appsscript.json dist/",
+      "push-only":   "npm run push-setup && clasp push",
+      "push-only-no-deprecation":
+                     "npm run push-setup && node --no-deprecation $(which clasp) push",
+
+      "push":       "npm run build && npm run push-only-no-deprecation"
   },
   "keywords": [],
   "author": "",
