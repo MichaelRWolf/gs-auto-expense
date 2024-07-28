@@ -4,9 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-      "build": "tsc",
-      "push": "npm run build && cp appsscript.json dist/ && clasp push",
-      "test": "jest --verbose"
+      "test":       "jest --verbose",
+
+      "build-only": "tsc",
+      "build":      "npm run test && npm run build-only",
+
+      "push-only":  "cp appsscript.json dist/ && clasp push",
+      "push":       "npm run build && npm run push-only"
   },
   "keywords": [],
   "author": "",
