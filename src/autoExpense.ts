@@ -8,7 +8,6 @@ export class AutoExpense {
   ) {}
 }
 
-
 export function MpgForThisExpense(accumulator: any, expense: AutoExpense): any {
   // Implementation here, for example:
   if (!accumulator[expense.vehicleName]) {
@@ -16,16 +15,20 @@ export function MpgForThisExpense(accumulator: any, expense: AutoExpense): any {
   }
 
   const vehicleInfo = accumulator[expense.vehicleName];
-  
-  if (expense.odometerReading !== null && expense.odometerReading > vehicleInfo.lastOdometer) {
-    const mileage = (expense.odometerReading - vehicleInfo.lastOdometer) / vehicleInfo.gallons;
+
+  if (
+    expense.odometerReading !== null &&
+    expense.odometerReading > vehicleInfo.lastOdometer
+  ) {
+    const mileage =
+      (expense.odometerReading - vehicleInfo.lastOdometer) /
+      vehicleInfo.gallons;
     vehicleInfo.lastOdometer = expense.odometerReading;
     return mileage;
   }
 
   return null;
 }
-
 
 export class AutoExpenseFactory {
   static create(

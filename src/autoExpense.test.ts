@@ -1,11 +1,11 @@
 import { AutoExpense, AutoExpenseFactory } from "./autoExpense";
-import {MpgForThisExpense} from './autoExpense';
+import { MpgForThisExpense } from "./autoExpense";
 
 // @ts-ignore
-import { verify, verifyAsJSON } from 'approvals';
+import { verify, verifyAsJSON } from "approvals";
 
 // @ts-ignore
-import { defaultConfig } from 'approvals/lib/config';
+import { defaultConfig } from "approvals/lib/config";
 
 describe("AutoExpense", () => {
   it("should create object from AutoExpenseFactory", () => {
@@ -35,73 +35,80 @@ describe("AutoExpense", () => {
   });
 });
 
-describe('MpgForThisExpense', () => {
-    it('returns null and updates accumulator for first entry', () => {
+describe("MpgForThisExpense", () => {
+  it("returns null and updates accumulator for first entry", () => {
     const accumulator: any = {};
-    const expense = AutoExpenseFactory.create('Buick', '2024-07-22', 50043, 10, 'First location');
+    const expense = AutoExpenseFactory.create(
+      "Buick",
+      "2024-07-22",
+      50043,
+      10,
+      "First location",
+    );
 
     const mpg = MpgForThisExpense(accumulator, expense);
 
-      // const dataMap = new Map<string, any>([
-      // 	  ['MPG', result],
-      // 	  ['accumulator', accumulator]
-      // ]);
+    // const dataMap = new Map<string, any>([
+    // 	  ['MPG', result],
+    // 	  ['accumulator', accumulator]
+    // ]);
 
-      // const actual = {
-      // 	  MPG: result,
-      // 	  accumulator: accumulator
-      // };
+    // const actual = {
+    // 	  MPG: result,
+    // 	  accumulator: accumulator
+    // };
 
+    // // Convert Map to Plain Object
+    // const plainObject = Object.fromEntries(dataMap);
 
-      // // Convert Map to Plain Object
-      // const plainObject = Object.fromEntries(dataMap);
+    // // Convert Plain Object to JSON String
+    // const jsonString = JSON.stringify(plainObject, null, 2);
 
-      // // Convert Plain Object to JSON String
-      // const jsonString = JSON.stringify(plainObject, null, 2);
+    // Create a Map with your data
+    // const dataMap = new Map<string, any>([
+    // 	  ['MPG', null],
+    // 	  ['accumulator', {
+    // 	      Toyota: {
+    // 		  gallons: 0,
+    // 		  lastOdometer: 50000
+    // 	      }
+    // 	  }]
+    // ]);
 
+    const received = {
+      MPG: mpg,
+      accumulator: accumulator,
+      // accumulator: {
+      //     Toyota: {
+      // 	  gallons: 0,
+      // 	  lastOdometer: 50000
+      //     }
+      // }
+    };
 
-      // Create a Map with your data
-      // const dataMap = new Map<string, any>([
-      // 	  ['MPG', null],
-      // 	  ['accumulator', {
-      // 	      Toyota: {
-      // 		  gallons: 0,
-      // 		  lastOdometer: 50000
-      // 	      }
-      // 	  }]
-      // ]);
+    // Convert the Map to a Plain Object
+    // const plainObject = Object.fromEntries(dataMap);
 
-      const received = {
-	  MPG: mpg,
-	  accumulator: accumulator
-	  // accumulator: {
-	  //     Toyota: {
-	  // 	  gallons: 0,
-	  // 	  lastOdometer: 50000
-	  //     }
-	  // }
-      };
-      
-      // Convert the Map to a Plain Object
-      // const plainObject = Object.fromEntries(dataMap);
-      
-      // // Convert the Plain Object to a JSON String
-      // // const jsonString = JSON.stringify(plainObject, null, 2); // Pretty print with 2 spaces
-      // const jsonString = JSON.stringify(plainObject);
-      
-      // Call verifyAsJSON with the appropriate arguments
-      // verify(__dirname, 'autoExpenseTest', JSON.stringify(data, null, 2), {});
-      verify("test_resources", 'returns-null-and-updates-accumulator-for-first-entry', JSON.stringify(received, null, 2), {});
-      
+    // // Convert the Plain Object to a JSON String
+    // // const jsonString = JSON.stringify(plainObject, null, 2); // Pretty print with 2 spaces
+    // const jsonString = JSON.stringify(plainObject);
 
+    // Call verifyAsJSON with the appropriate arguments
+    // verify(__dirname, 'autoExpenseTest', JSON.stringify(data, null, 2), {});
+    verify(
+      "test_resources",
+      "returns-null-and-updates-accumulator-for-first-entry",
+      JSON.stringify(received, null, 2),
+      {},
+    );
 
-     // verifyAsJSON('.', 'testxxx', jsonString, defaultConfig)
-      // verifyAsJSON('.', 'testxxx', dataMap, defaultConfig)
-      // verifyAsJSON('.', 'testxxx', accumulator, defaultConfig)
-      // verifyAsJSON('.', 'testxxx', result, defaultConfig)
+    // verifyAsJSON('.', 'testxxx', jsonString, defaultConfig)
+    // verifyAsJSON('.', 'testxxx', dataMap, defaultConfig)
+    // verifyAsJSON('.', 'testxxx', accumulator, defaultConfig)
+    // verifyAsJSON('.', 'testxxx', result, defaultConfig)
 
-      // verify(".", 'testxxx', {	result,	accumulator    }); 
-      // verifyAsJSON('.', 'testxxx', result, null)
+    // verify(".", 'testxxx', {	result,	accumulator    });
+    // verifyAsJSON('.', 'testxxx', result, null)
 
     // expect(result.mileage).toBeNull();
     // expect(result.accumulator['Toyota'].lastOdometer).toBe(50000);
