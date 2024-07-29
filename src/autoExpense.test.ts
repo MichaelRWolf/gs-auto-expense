@@ -1,7 +1,10 @@
 import { AutoExpense, AutoExpenseFactory } from "./autoExpense";
 import {MpgForThisExpense} from './autoExpense';
-//import { verify } from 'approvaltests'; typescript
+
+// @ts-ignore
 import { verify, verifyAsJSON } from 'approvals';
+
+// @ts-ignore
 import { defaultConfig } from 'approvals/lib/config';
 
 describe("AutoExpense", () => {
