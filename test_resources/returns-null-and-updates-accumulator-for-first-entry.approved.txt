@@ -1,0 +1,9 @@
+{
+  "MPG": null,
+  "accumulator": {
+    "Buick": {
+      "gallons": 0,
+      "lastOdometer": 50043
+    }
+  }
+}
