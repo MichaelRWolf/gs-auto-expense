@@ -2,17 +2,20 @@
   "compilerOptions": {
     "target": "ES5",
     "module": "commonjs",
-    "outDir": "./dist",
-      "rootDir": "./src",
-    "sourceMap": true,
+    "target": "ES5",
+    "moduleResolution": "node",
     "strict": true,
+    "esModuleInterop": true,
     "skipLibCheck": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "typeRoots": ["./node_modules/@types"]
   },
   "include": [
-      "src/**/*.ts", 
-      "types/**/*"
+    "src/**/*.ts",
+    "types/**/*",
+    "node_modules/approvals/lib/*.d.ts",
+    "node_modules/approvals/lib/**/*.d.ts"
   ],
-  "exclude": [
-      "node_modules",
-  ]
+  "exclude": ["node_modules"]
 }
