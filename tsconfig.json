@@ -1,21 +1,26 @@
 {
   "compilerOptions": {
+    //
+    // Google Apps Script uses ES5 JavaScript,
     "target": "ES5",
+    //
+    // CommonJS modules for Node.js style imports,
     "module": "commonjs",
-    "target": "ES5",
-    "moduleResolution": "node",
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
+    //
+    // Output directory for compiled files,
     "outDir": "./dist",
+    //
+    // Source directory for TypeScript files,
     "rootDir": "./src",
-    "typeRoots": ["./node_modules/@types"]
+    //
+    // Enable all strict type-checking options,
+    "strict": true,
+    //
+    // Allows default imports from modules with no default export,
+    "esModuleInterop": true
   },
   "include": [
-    "src/**/*.ts",
-    "types/**/*",
-    "node_modules/approvals/lib/*.d.ts",
-    "node_modules/approvals/lib/**/*.d.ts"
-  ],
-  "exclude": ["node_modules"]
+    // Include all TypeScript files in the 'src' directory,
+    "src/**/*.ts"
+  ]
 }

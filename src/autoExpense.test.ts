@@ -110,7 +110,7 @@ describe("MpgForThisExpense", () => {
     // verify(".", 'testxxx', {	result,	accumulator    });
     // verifyAsJSON('.', 'testxxx', result, null)
 
-    // expect(result.mileage).toBeNull();
+    expect(mpg).toBeNull();
     // expect(result.accumulator['Toyota'].lastOdometer).toBe(50000);
     // expect(result.accumulator['Toyota'].totalGallons).toBe(10);
   });
